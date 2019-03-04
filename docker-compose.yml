@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  postgres_database:
+    image: postgres:9.6
+    container_name: zapex_database
+    environment:
+      - POSTGRES_DB=zapex_db
+      - POSTGRES_USER=zapex_usr
+      - POSTGRES_PASSWORD=zapex_pwd
+      - TZ=GMT
+    volumes:
+      - $PWD/.local_db/postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  app_server:
+    build: .
+    container_name: zapex_server
+    environment:
+      - DATABASE_URL=postgresql://zapex_usr:zapex_pwd@zapex_database/zapex_db?pool_size=10
+    command: mix phx.server
+    volumes: 
+      - $PWD:/usr/src/app
+    ports: 
+      - 8080:4000
+    depends_on:
+      - postgres_database

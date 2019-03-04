@@ -41,4 +41,8 @@ npm-debug.log
 # variables.
 /config/*.secret.exs
 
+# VSCode extension
 **/.elixir_ls
+
+# Docker volume for Postgres. Should exist just at the development
+.local_db
