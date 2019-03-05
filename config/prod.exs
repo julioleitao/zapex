@@ -7,5 +7,4 @@ config :zapex, ZapexWeb.Endpoint,
 
 config :logger, level: :info
 
-config :zapex, Zapex.Repo,
-  url: System.get_env("DATABASE_URL")
+config :zapex, Zapex.Repo, url: System.get_env("DATABASE_URL")

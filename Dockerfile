@@ -6,7 +6,9 @@ WORKDIR $APP_DIR
 COPY . $APP_DIR
 
 # install the required frameworks and tools
-RUN mix local.hex --force && mix archive.install hex phx_new 1.4.0
+RUN apk add --update nodejs && \ 
+    mix local.hex --force && \
+    mix archive.install hex phx_new 1.4.0
 
 EXPOSE 4000
 

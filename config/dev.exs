@@ -32,4 +32,6 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 config :zapex, Zapex.Repo,
-  url: System.get_env("DATABASE_URL") || "postgresql://zapex_usr:zapex_pwd@localhost/zapex_db?pool_size=10"
+  url:
+    System.get_env("DATABASE_URL") ||
+      "postgresql://zapex_usr:zapex_pwd@localhost/zapex_db?pool_size=10"

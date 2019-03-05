@@ -23,6 +23,6 @@ services:
     volumes: 
       - $PWD:/usr/src/app
     ports: 
-      - 8080:4000
+      - 4000:4000
     depends_on:
       - postgres_database
